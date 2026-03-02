@@ -1,0 +1,31 @@
+{
+  "name": "playwright-ui-e2e-bdd",
+  "version": "1.0.0",
+  "description": "Automação UI E2E com Playwright + BDD (Gherkin), CI no GitHub Actions e artifacts de execução.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --config playwright/playwright.config.ts",
+    "test:smoke": "playwright test --config playwright/playwright.config.ts --grep @smoke",
+    "test:regression": "playwright test --config playwright/playwright.config.ts --grep @regression",
+    "report": "npx --yes kill-port 9323 && playwright show-report playwright-report",
+    "codegen": "playwright codegen https://automationexercise.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagocostajf/playwright-ui-e2e-bdd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tiagocostajf/playwright-ui-e2e-bdd/issues"
+  },
+  "homepage": "https://github.com/tiagocostajf/playwright-ui-e2e-bdd#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.3",
+    "typescript": "^5.9.3"
+  }
+}
