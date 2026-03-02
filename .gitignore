@@ -22,3 +22,9 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Windows NUL device artifact (created when redirecting output via cmd.exe in PowerShell)
+nul
+
+# Playwright auth state
+playwright/.auth/

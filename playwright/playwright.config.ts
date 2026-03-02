@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import { AUTH_FILE } from "./utils/auth-state";
 
 export default defineConfig({
   testDir: "./e2e",
@@ -27,12 +28,31 @@ export default defineConfig({
 
   projects: [
     {
+      name: "setup",
+      testDir: "./support",
+      testMatch: /auth\.setup\.ts/,
+    },
+    {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
+      testIgnore: /\.logged-in\.spec\.ts/,
     },
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
+      testIgnore: /\.logged-in\.spec\.ts/,
+    },
+    {
+      name: "logged-in-chromium",
+      use: { ...devices["Desktop Chrome"], storageState: AUTH_FILE },
+      testMatch: /\.logged-in\.spec\.ts/,
+      dependencies: ["setup"],
+    },
+    {
+      name: "logged-in-firefox",
+      use: { ...devices["Desktop Firefox"], storageState: AUTH_FILE },
+      testMatch: /\.logged-in\.spec\.ts/,
+      dependencies: ["setup"],
     },
   ],
 });
