@@ -1,31 +1,29 @@
 import { test } from "../../fixtures/pages.fixture";
+import { TC_PRODUCTS_VIEW_LOGGED_IN } from "../../utils/test-case-ids";
 
-test.describe("Products (Logged In) - Smoke", () => {
-  test(
-    "Given I am logged in, " +
-      "When I navigate to Products, " +
-      "Then I should see the product list and product details @smoke",
-    async ({ productsPage }) => {
-      await test.step("Given I am logged in and on the Home page", async () => {
-        await productsPage.openHome();
-        await productsPage.assertLoggedIn();
-      });
+test.describe("Products (Logged In) @smoke", () => {
+  test(`${TC_PRODUCTS_VIEW_LOGGED_IN}: View product list and details while logged in`, async ({
+    productsPage,
+  }) => {
+    await test.step("Given I am logged in and on the Home page", async () => {
+      await productsPage.openHome();
+      await productsPage.assertLoggedIn();
+    });
 
-      await test.step("When I click on the Products button", async () => {
-        await productsPage.navigateToProducts();
-      });
+    await test.step("When I click on the Products button", async () => {
+      await productsPage.navigateToProducts();
+    });
 
-      await test.step("Then I should be on the ALL PRODUCTS page", async () => {
-        await productsPage.assertProductsListVisible();
-      });
+    await test.step("Then I should be on the ALL PRODUCTS page", async () => {
+      await productsPage.assertProductsListVisible();
+    });
 
-      await test.step("When I click View Product on the first product", async () => {
-        await productsPage.viewFirstProduct();
-      });
+    await test.step("When I click View Product on the first product", async () => {
+      await productsPage.viewFirstProduct();
+    });
 
-      await test.step("Then I should see all product detail fields", async () => {
-        await productsPage.assertProductDetailVisible();
-      });
-    },
-  );
+    await test.step("Then I should see all product detail fields", async () => {
+      await productsPage.assertProductDetailVisible();
+    });
+  });
 });
