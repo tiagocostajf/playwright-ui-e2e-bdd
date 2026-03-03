@@ -1,5 +1,18 @@
 import { test } from "../../fixtures/pages.fixture";
 import { randomUser } from "../../utils/test-data";
+import {
+  TC_REGISTER_DUPLICATE_EMAIL,
+  TC_REGISTER_NAME_REQUIRED,
+  TC_REGISTER_EMAIL_REQUIRED,
+  TC_REGISTER_PASSWORD_REQUIRED,
+  TC_REGISTER_FIRST_NAME_REQUIRED,
+  TC_REGISTER_LAST_NAME_REQUIRED,
+  TC_REGISTER_ADDRESS_REQUIRED,
+  TC_REGISTER_STATE_REQUIRED,
+  TC_REGISTER_CITY_REQUIRED,
+  TC_REGISTER_ZIPCODE_REQUIRED,
+  TC_REGISTER_MOBILE_REQUIRED,
+} from "../../utils/test-case-ids";
 
 type AccountInfo = {
   title: "Mr" | "Mrs";
@@ -41,9 +54,9 @@ function without(
 
 // ─── Signup form ────────────────────────────────────────────────────────────
 
-test.describe("Register - Signup form validation @regression", () => {
+test.describe("Register - Signup form @regression", () => {
   test.describe.configure({ timeout: 60_000 });
-  test("Given a registered email, When I try to register again, Then I should see duplicate email error", async ({
+  test(`${TC_REGISTER_DUPLICATE_EMAIL}: Duplicate email shows error`, async ({
     registerPage,
   }) => {
     test.setTimeout(90_000);
@@ -88,7 +101,7 @@ test.describe("Register - Signup form validation @regression", () => {
     });
   });
 
-  test("Given I am on the Signup page, When I submit without a name, Then the name field should be required", async ({
+  test(`${TC_REGISTER_NAME_REQUIRED}: Empty name field is required`, async ({
     registerPage,
   }) => {
     await test.step("Given I navigate to the Signup page", async () => {
@@ -108,7 +121,7 @@ test.describe("Register - Signup form validation @regression", () => {
     });
   });
 
-  test("Given I am on the Signup page, When I submit without an email, Then the email field should be required", async ({
+  test(`${TC_REGISTER_EMAIL_REQUIRED}: Empty email field is required`, async ({
     registerPage,
   }) => {
     await test.step("Given I navigate to the Signup page", async () => {
@@ -129,18 +142,55 @@ test.describe("Register - Signup form validation @regression", () => {
 // ─── Account info form – required fields ────────────────────────────────────
 
 const requiredAccountFields: Array<{
+  tc: string;
   label: string;
   selector: string;
   omitKey: AccountInfoKey;
 }> = [
-  { label: "Password", selector: "#password", omitKey: "password" },
-  { label: "First name", selector: "#first_name", omitKey: "firstName" },
-  { label: "Last name", selector: "#last_name", omitKey: "lastName" },
-  { label: "Address", selector: "#address1", omitKey: "address" },
-  { label: "State", selector: "#state", omitKey: "state" },
-  { label: "City", selector: "#city", omitKey: "city" },
-  { label: "Zipcode", selector: "#zipcode", omitKey: "zipcode" },
   {
+    tc: TC_REGISTER_PASSWORD_REQUIRED,
+    label: "Password",
+    selector: "#password",
+    omitKey: "password",
+  },
+  {
+    tc: TC_REGISTER_FIRST_NAME_REQUIRED,
+    label: "First name",
+    selector: "#first_name",
+    omitKey: "firstName",
+  },
+  {
+    tc: TC_REGISTER_LAST_NAME_REQUIRED,
+    label: "Last name",
+    selector: "#last_name",
+    omitKey: "lastName",
+  },
+  {
+    tc: TC_REGISTER_ADDRESS_REQUIRED,
+    label: "Address",
+    selector: "#address1",
+    omitKey: "address",
+  },
+  {
+    tc: TC_REGISTER_STATE_REQUIRED,
+    label: "State",
+    selector: "#state",
+    omitKey: "state",
+  },
+  {
+    tc: TC_REGISTER_CITY_REQUIRED,
+    label: "City",
+    selector: "#city",
+    omitKey: "city",
+  },
+  {
+    tc: TC_REGISTER_ZIPCODE_REQUIRED,
+    label: "Zipcode",
+    selector: "#zipcode",
+    omitKey: "zipcode",
+  },
+  {
+    tc: TC_REGISTER_MOBILE_REQUIRED,
     label: "Mobile Number",
     selector: "#mobile_number",
     omitKey: "mobileNumber",
@@ -159,10 +209,8 @@ test.describe("Register - Account info required fields @regression", () => {
     );
   });
 
-  for (const { label, selector, omitKey } of requiredAccountFields) {
-    test(`Given I am on Account info, When I submit without ${label}, Then ${label} should be required`, async ({
-      registerPage,
-    }) => {
+  for (const { tc, label, selector, omitKey } of requiredAccountFields) {
+    test(`${tc}: ${label} is required`, async ({ registerPage }) => {
       await test.step(`When I fill all fields except ${label}`, async () => {
         await registerPage.fillAccountInfoPartial(
           without(baseAccountInfo(), omitKey),
