@@ -3,12 +3,14 @@ import { RegisterPage } from "../pages/RegisterPage";
 import { ProductsPage } from "../pages/ProductsPage";
 import { TestCasesPage } from "../pages/TestCasesPage";
 import { ContactUsPage } from "../pages/ContactUsPage";
+import { HomePage } from "../pages/HomePage";
 
 type PageFixtures = {
   registerPage: RegisterPage;
   productsPage: ProductsPage;
   testCasesPage: TestCasesPage;
   contactUsPage: ContactUsPage;
+  homePage: HomePage;
 };
 
 export const test = base.extend<PageFixtures>({
@@ -23,6 +25,9 @@ export const test = base.extend<PageFixtures>({
   },
   contactUsPage: async ({ page }, use) => {
     await use(new ContactUsPage(page));
+  },
+  homePage: async ({ page }, use) => {
+    await use(new HomePage(page));
   },
 });
 

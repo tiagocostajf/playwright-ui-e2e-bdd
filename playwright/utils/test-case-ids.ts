@@ -15,13 +15,14 @@
  *   1. regression/register-validation.spec.ts    → TC-001 … TC-011
  *   2. regression/search-products.spec.ts        → TC-012 … TC-017
  *   3. smoke/contact-us.spec.ts                  → TC-018
- *   4. smoke/products.spec.ts                    → TC-019
- *   5. smoke/register.spec.ts                    → TC-020
- *   6. smoke/test-cases.spec.ts                  → TC-021
- *   7. regression/search-products.logged-in…     → TC-022
- *   8. smoke/contact-us.logged-in…               → TC-023
- *   9. smoke/products.logged-in…                 → TC-024
- *  10. smoke/test-cases.logged-in…               → TC-025
+ *   4. smoke/home-subscription.spec.ts           → TC-026 … TC-032
+ *   5. smoke/products.spec.ts                    → TC-019
+ *   6. smoke/register.spec.ts                    → TC-020
+ *   7. smoke/test-cases.spec.ts                  → TC-021
+ *   8. regression/search-products.logged-in…     → TC-022
+ *   9. smoke/contact-us.logged-in…               → TC-023
+ *  10. smoke/products.logged-in…                 → TC-024
+ *  11. smoke/test-cases.logged-in…               → TC-025
  * ────────────────────────────────────────────────────────────────────
  */
 
@@ -59,6 +60,15 @@ export const TC_REGISTER_VALID = "TC-020";
 
 // ─── Test Cases (smoke) ─────────────────────────────────────────────────────
 export const TC_TEST_CASES_NAVIGATE = "TC-021";
+
+// ─── Home page (smoke) ─────────────────────────────────────────────────────
+export const TC_SUBSCRIPTION_HOME = "TC-026";
+export const TC_SUBSCRIPTION_EMPTY_EMAIL = "TC-027";
+export const TC_SUBSCRIPTION_INVALID_NO_AT = "TC-028";
+export const TC_SUBSCRIPTION_INVALID_NO_DOMAIN = "TC-029";
+export const TC_SUBSCRIPTION_FILL_CLEAR_SUBMIT = "TC-030";
+export const TC_SUBSCRIPTION_EXCESSIVE_LENGTH = "TC-031";
+export const TC_SUBSCRIPTION_XSS_ATTEMPT = "TC-032";
 
 // ─── Logged-in variants ─────────────────────────────────────────────────────
 export const TC_SEARCH_EXISTING_LOGGED_IN = "TC-022";
