@@ -1,8 +1,8 @@
 import { test } from "../../fixtures/pages.fixture";
-import { TC_PRODUCTS_VIEW_LOGGED_IN } from "../../utils/test-case-ids";
+import { TC_08_1_PRODUCTS_VIEW_LOGGED_IN } from "../../utils/test-case-ids";
 
 test.describe("Products (Logged In) @smoke", () => {
-  test(`${TC_PRODUCTS_VIEW_LOGGED_IN}: View product list and details while logged in`, async ({
+  test(`${TC_08_1_PRODUCTS_VIEW_LOGGED_IN}: View product list and details while logged in`, async ({
     productsPage,
   }) => {
     await test.step("Given I am logged in and on the Home page", async () => {

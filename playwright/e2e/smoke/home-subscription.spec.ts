@@ -1,13 +1,13 @@
 import { test } from "../../fixtures/pages.fixture";
 import { uniqueEmail } from "../../utils/test-data";
 import {
-  TC_SUBSCRIPTION_HOME,
-  TC_SUBSCRIPTION_EMPTY_EMAIL,
-  TC_SUBSCRIPTION_INVALID_NO_AT,
-  TC_SUBSCRIPTION_INVALID_NO_DOMAIN,
-  TC_SUBSCRIPTION_FILL_CLEAR_SUBMIT,
-  TC_SUBSCRIPTION_EXCESSIVE_LENGTH,
-  TC_SUBSCRIPTION_XSS_ATTEMPT,
+  TC_10_SUBSCRIPTION_HOME,
+  TC_10_1_SUBSCRIPTION_EMPTY_EMAIL,
+  TC_10_2_SUBSCRIPTION_INVALID_NO_AT,
+  TC_10_3_SUBSCRIPTION_INVALID_NO_DOMAIN,
+  TC_10_4_SUBSCRIPTION_FILL_CLEAR_SUBMIT,
+  TC_10_5_SUBSCRIPTION_EXCESSIVE_LENGTH,
+  TC_10_6_SUBSCRIPTION_XSS_ATTEMPT,
 } from "../../utils/test-case-ids";
 
 test.describe("Home Page – Subscription @smoke", () => {
@@ -17,7 +17,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     await homePage.assertSubscriptionHeadingVisible();
   });
 
-  test(`${TC_SUBSCRIPTION_HOME}: Valid random email subscribes successfully`, async ({
+  test(`${TC_10_SUBSCRIPTION_HOME}: Valid random email subscribes successfully`, async ({
     homePage,
   }) => {
     const email = uniqueEmail("sub");
@@ -31,7 +31,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     });
   });
 
-  test(`${TC_SUBSCRIPTION_EMPTY_EMAIL}: Submitting empty email is blocked`, async ({
+  test(`${TC_10_1_SUBSCRIPTION_EMPTY_EMAIL}: Submitting empty email is blocked`, async ({
     homePage,
   }) => {
     await test.step("When I click the arrow button without entering an email", async () => {
@@ -47,7 +47,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     });
   });
 
-  test(`${TC_SUBSCRIPTION_INVALID_NO_AT}: Email without '@' is rejected by browser validation`, async ({
+  test(`${TC_10_2_SUBSCRIPTION_INVALID_NO_AT}: Email without '@' is rejected by browser validation`, async ({
     homePage,
   }) => {
     await test.step("When I enter an email without the '@' character", async () => {
@@ -64,7 +64,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     });
   });
 
-  test(`${TC_SUBSCRIPTION_INVALID_NO_DOMAIN}: Email ending with '@' and no domain is rejected`, async ({
+  test(`${TC_10_3_SUBSCRIPTION_INVALID_NO_DOMAIN}: Email ending with '@' and no domain is rejected`, async ({
     homePage,
   }) => {
     await test.step("When I enter an email address with no domain part (e.g. 'test@')", async () => {
@@ -81,7 +81,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     });
   });
 
-  test(`${TC_SUBSCRIPTION_FILL_CLEAR_SUBMIT}: Typing then clearing email prevents subscription`, async ({
+  test(`${TC_10_4_SUBSCRIPTION_FILL_CLEAR_SUBMIT}: Typing then clearing email prevents subscription`, async ({
     homePage,
   }) => {
     test.slow();
@@ -106,7 +106,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     });
   });
 
-  test(`${TC_SUBSCRIPTION_EXCESSIVE_LENGTH}: Excessively long email does not break the page`, async ({
+  test(`${TC_10_5_SUBSCRIPTION_EXCESSIVE_LENGTH}: Excessively long email does not break the page`, async ({
     homePage,
   }) => {
     const longEmail = `${"a".repeat(250)}@automation-test.io`;
@@ -125,7 +125,7 @@ test.describe("Home Page – Subscription @smoke", () => {
     });
   });
 
-  test(`${TC_SUBSCRIPTION_XSS_ATTEMPT}: XSS injection attempt in email field is blocked`, async ({
+  test(`${TC_10_6_SUBSCRIPTION_XSS_ATTEMPT}: XSS injection attempt in email field is blocked`, async ({
     homePage,
   }) => {
     const xssEmail = `<script>alert('xss')</script>@test.com`;

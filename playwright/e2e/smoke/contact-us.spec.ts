@@ -1,8 +1,8 @@
 import { test } from "../../fixtures/pages.fixture";
-import { TC_CONTACT_US_SUBMIT } from "../../utils/test-case-ids";
+import { TC_06_CONTACT_US_SUBMIT } from "../../utils/test-case-ids";
 
 test.describe("Contact Us @smoke", () => {
-  test(`${TC_CONTACT_US_SUBMIT}: Submit contact form and return Home`, async ({
+  test(`${TC_06_CONTACT_US_SUBMIT}: Submit contact form and return Home`, async ({
     contactUsPage,
   }) => {
     await test.step("Given I launch the browser and navigate to the Home page", async () => {

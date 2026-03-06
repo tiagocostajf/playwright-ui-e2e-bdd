@@ -1,8 +1,8 @@
 import { test } from "../../fixtures/pages.fixture";
-import { TC_TEST_CASES_LOGGED_IN } from "../../utils/test-case-ids";
+import { TC_07_1_TEST_CASES_LOGGED_IN } from "../../utils/test-case-ids";
 
 test.describe("Test Cases (Logged In) @smoke", () => {
-  test(`${TC_TEST_CASES_LOGGED_IN}: Navigate to Test Cases page while logged in`, async ({
+  test(`${TC_07_1_TEST_CASES_LOGGED_IN}: Navigate to Test Cases page while logged in`, async ({
     testCasesPage,
   }) => {
     await test.step("Given I am logged in and on the Home page", async () => {

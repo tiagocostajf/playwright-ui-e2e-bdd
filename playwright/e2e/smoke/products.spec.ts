@@ -1,8 +1,8 @@
 import { test } from "../../fixtures/pages.fixture";
-import { TC_PRODUCTS_VIEW_LIST_AND_DETAILS } from "../../utils/test-case-ids";
+import { TC_08_PRODUCTS_VIEW_LIST_AND_DETAILS } from "../../utils/test-case-ids";
 
 test.describe("Products @smoke", () => {
-  test(`${TC_PRODUCTS_VIEW_LIST_AND_DETAILS}: View product list and details`, async ({
+  test(`${TC_08_PRODUCTS_VIEW_LIST_AND_DETAILS}: View product list and details`, async ({
     productsPage,
   }) => {
     await test.step("Given I launch the browser and navigate to the Home page", async () => {

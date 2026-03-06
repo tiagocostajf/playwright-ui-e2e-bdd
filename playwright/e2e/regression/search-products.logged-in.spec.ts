@@ -1,8 +1,8 @@
 import { test } from "../../fixtures/pages.fixture";
-import { TC_SEARCH_EXISTING_LOGGED_IN } from "../../utils/test-case-ids";
+import { TC_09_6_SEARCH_EXISTING_LOGGED_IN } from "../../utils/test-case-ids";
 
 test.describe("Search Products (Logged In) @regression", () => {
-  test(`${TC_SEARCH_EXISTING_LOGGED_IN}: Search existing product while logged in`, async ({
+  test(`${TC_09_6_SEARCH_EXISTING_LOGGED_IN}: Search existing product while logged in`, async ({
     productsPage,
   }) => {
     let productName: string;

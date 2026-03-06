@@ -56,6 +56,10 @@ export class ProductsPage extends BasePage {
   }
 
   async openHome(): Promise<void> {
+    await this.page.route(
+      /doubleclick\.net|googlesyndication|googleadservices|google_vignette|googletagmanager|yandex\.(ru|net)|adservice/i,
+      (route) => route.abort(),
+    );
     await this.page.goto("/");
     await expect(this.page).toHaveTitle(/Automation Exercise/i);
     await this.screenshot("01 - Home page loaded");
@@ -108,6 +112,19 @@ export class ProductsPage extends BasePage {
   async searchProducts(term: string): Promise<void> {
     await this.searchInput.fill(term);
     await this.searchButton.click();
+    // Guard against ad redirects on Firefox: if we land off /products, navigate back
+    await this.page
+      .waitForURL((url) => url.href.includes("/products"), {
+        timeout: 10_000,
+      })
+      .catch(async () => {
+        await this.page.goto("/products");
+        await this.searchInput.fill(term);
+        await this.searchButton.click();
+        await this.page.waitForURL((url) => url.href.includes("/products"), {
+          timeout: 10_000,
+        });
+      });
     await this.screenshot(`Search - term: "${term}"`);
   }
 

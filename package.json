@@ -1,7 +1,7 @@
 {
   "name": "playwright-ui-e2e-bdd",
   "version": "1.0.0",
-  "description": "Automação UI E2E com Playwright + BDD (Gherkin), CI no GitHub Actions e artifacts de execução.",
+  "description": "E2E UI automation with Playwright + TypeScript, Page Object Pattern, BDD-style steps, and CI-ready configuration.",
   "main": "index.js",
   "scripts": {
     "test": "playwright test --config playwright/playwright.config.ts",
