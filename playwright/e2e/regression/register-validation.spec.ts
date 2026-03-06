@@ -1,17 +1,17 @@
 import { test } from "../../fixtures/pages.fixture";
 import { randomUser } from "../../utils/test-data";
 import {
-  TC_REGISTER_DUPLICATE_EMAIL,
-  TC_REGISTER_NAME_REQUIRED,
-  TC_REGISTER_EMAIL_REQUIRED,
-  TC_REGISTER_PASSWORD_REQUIRED,
-  TC_REGISTER_FIRST_NAME_REQUIRED,
-  TC_REGISTER_LAST_NAME_REQUIRED,
-  TC_REGISTER_ADDRESS_REQUIRED,
-  TC_REGISTER_STATE_REQUIRED,
-  TC_REGISTER_CITY_REQUIRED,
-  TC_REGISTER_ZIPCODE_REQUIRED,
-  TC_REGISTER_MOBILE_REQUIRED,
+  TC_05_REGISTER_DUPLICATE_EMAIL,
+  TC_01_1_REGISTER_NAME_REQUIRED,
+  TC_01_2_REGISTER_EMAIL_REQUIRED,
+  TC_01_3_REGISTER_PASSWORD_REQUIRED,
+  TC_01_4_REGISTER_FIRST_NAME_REQUIRED,
+  TC_01_5_REGISTER_LAST_NAME_REQUIRED,
+  TC_01_6_REGISTER_ADDRESS_REQUIRED,
+  TC_01_7_REGISTER_STATE_REQUIRED,
+  TC_01_8_REGISTER_CITY_REQUIRED,
+  TC_01_9_REGISTER_ZIPCODE_REQUIRED,
+  TC_01_10_REGISTER_MOBILE_REQUIRED,
 } from "../../utils/test-case-ids";
 
 type AccountInfo = {
@@ -56,7 +56,7 @@ function without(
 
 test.describe("Register - Signup form @regression", () => {
   test.describe.configure({ timeout: 60_000 });
-  test(`${TC_REGISTER_DUPLICATE_EMAIL}: Duplicate email shows error`, async ({
+  test(`${TC_05_REGISTER_DUPLICATE_EMAIL}: Duplicate email shows error`, async ({
     registerPage,
   }) => {
     test.setTimeout(90_000);
@@ -101,7 +101,7 @@ test.describe("Register - Signup form @regression", () => {
     });
   });
 
-  test(`${TC_REGISTER_NAME_REQUIRED}: Empty name field is required`, async ({
+  test(`${TC_01_1_REGISTER_NAME_REQUIRED}: Empty name field is required`, async ({
     registerPage,
   }) => {
     await test.step("Given I navigate to the Signup page", async () => {
@@ -121,7 +121,7 @@ test.describe("Register - Signup form @regression", () => {
     });
   });
 
-  test(`${TC_REGISTER_EMAIL_REQUIRED}: Empty email field is required`, async ({
+  test(`${TC_01_2_REGISTER_EMAIL_REQUIRED}: Empty email field is required`, async ({
     registerPage,
   }) => {
     await test.step("Given I navigate to the Signup page", async () => {
@@ -148,49 +148,49 @@ const requiredAccountFields: Array<{
   omitKey: AccountInfoKey;
 }> = [
   {
-    tc: TC_REGISTER_PASSWORD_REQUIRED,
+    tc: TC_01_3_REGISTER_PASSWORD_REQUIRED,
     label: "Password",
     selector: "#password",
     omitKey: "password",
   },
   {
-    tc: TC_REGISTER_FIRST_NAME_REQUIRED,
+    tc: TC_01_4_REGISTER_FIRST_NAME_REQUIRED,
     label: "First name",
     selector: "#first_name",
     omitKey: "firstName",
   },
   {
-    tc: TC_REGISTER_LAST_NAME_REQUIRED,
+    tc: TC_01_5_REGISTER_LAST_NAME_REQUIRED,
     label: "Last name",
     selector: "#last_name",
     omitKey: "lastName",
   },
   {
-    tc: TC_REGISTER_ADDRESS_REQUIRED,
+    tc: TC_01_6_REGISTER_ADDRESS_REQUIRED,
     label: "Address",
     selector: "#address1",
     omitKey: "address",
   },
   {
-    tc: TC_REGISTER_STATE_REQUIRED,
+    tc: TC_01_7_REGISTER_STATE_REQUIRED,
     label: "State",
     selector: "#state",
     omitKey: "state",
   },
   {
-    tc: TC_REGISTER_CITY_REQUIRED,
+    tc: TC_01_8_REGISTER_CITY_REQUIRED,
     label: "City",
     selector: "#city",
     omitKey: "city",
   },
   {
-    tc: TC_REGISTER_ZIPCODE_REQUIRED,
+    tc: TC_01_9_REGISTER_ZIPCODE_REQUIRED,
     label: "Zipcode",
     selector: "#zipcode",
     omitKey: "zipcode",
   },
   {
-    tc: TC_REGISTER_MOBILE_REQUIRED,
+    tc: TC_01_10_REGISTER_MOBILE_REQUIRED,
     label: "Mobile Number",
     selector: "#mobile_number",
     omitKey: "mobileNumber",

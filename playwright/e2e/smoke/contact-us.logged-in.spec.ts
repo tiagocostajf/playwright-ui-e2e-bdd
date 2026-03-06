@@ -1,8 +1,8 @@
 import { test } from "../../fixtures/pages.fixture";
-import { TC_CONTACT_US_LOGGED_IN } from "../../utils/test-case-ids";
+import { TC_06_1_CONTACT_US_LOGGED_IN } from "../../utils/test-case-ids";
 
 test.describe("Contact Us (Logged In) @smoke", () => {
-  test(`${TC_CONTACT_US_LOGGED_IN}: Submit contact form while logged in`, async ({
+  test(`${TC_06_1_CONTACT_US_LOGGED_IN}: Submit contact form while logged in`, async ({
     contactUsPage,
   }) => {
     await test.step("Given I am logged in and on the Home page", async () => {

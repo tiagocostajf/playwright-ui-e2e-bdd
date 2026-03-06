@@ -1,11 +1,11 @@
 import { test } from "../../fixtures/pages.fixture";
 import {
-  TC_SEARCH_EXISTING_PRODUCT,
-  TC_SEARCH_EMPTY_INPUT,
-  TC_SEARCH_NONEXISTENT,
-  TC_SEARCH_SPECIAL_CHARS,
-  TC_SEARCH_EXCESSIVE_INPUT,
-  TC_SEARCH_SINGLE_CHAR,
+  TC_09_SEARCH_EXISTING_PRODUCT,
+  TC_09_1_SEARCH_EMPTY_INPUT,
+  TC_09_2_SEARCH_NONEXISTENT,
+  TC_09_3_SEARCH_SPECIAL_CHARS,
+  TC_09_4_SEARCH_EXCESSIVE_INPUT,
+  TC_09_5_SEARCH_SINGLE_CHAR,
 } from "../../utils/test-case-ids";
 
 const NONEXISTENT_TERM = "XXNOTAPRODUCT999ZZ";
@@ -14,7 +14,7 @@ const EXCESSIVE_TERM = "a".repeat(260);
 const SINGLE_CHAR_TERM = "t";
 
 test.describe("Search Products @regression", () => {
-  test(`${TC_SEARCH_EXISTING_PRODUCT}: Search existing product (positive)`, async ({
+  test(`${TC_09_SEARCH_EXISTING_PRODUCT}: Search existing product (positive)`, async ({
     productsPage,
   }) => {
     let productName: string;
@@ -49,7 +49,7 @@ test.describe("Search Products @regression", () => {
     });
   });
 
-  test(`${TC_SEARCH_EMPTY_INPUT}: Empty search keeps full product list`, async ({
+  test(`${TC_09_1_SEARCH_EMPTY_INPUT}: Empty search keeps full product list`, async ({
     productsPage,
   }) => {
     await test.step("Given I navigate to the Products page", async () => {
@@ -70,7 +70,7 @@ test.describe("Search Products @regression", () => {
     });
   });
 
-  test(`${TC_SEARCH_NONEXISTENT}: Non-existent product shows no results`, async ({
+  test(`${TC_09_2_SEARCH_NONEXISTENT}: Non-existent product shows no results`, async ({
     productsPage,
   }) => {
     await test.step("Given I navigate to the Products page", async () => {
@@ -91,7 +91,7 @@ test.describe("Search Products @regression", () => {
     });
   });
 
-  test(`${TC_SEARCH_SPECIAL_CHARS}: Special characters show no results`, async ({
+  test(`${TC_09_3_SEARCH_SPECIAL_CHARS}: Special characters show no results`, async ({
     productsPage,
   }) => {
     await test.step("Given I navigate to the Products page", async () => {
@@ -112,7 +112,7 @@ test.describe("Search Products @regression", () => {
     });
   });
 
-  test(`${TC_SEARCH_EXCESSIVE_INPUT}: Excessive input shows no results`, async ({
+  test(`${TC_09_4_SEARCH_EXCESSIVE_INPUT}: Excessive input shows no results`, async ({
     productsPage,
   }) => {
     await test.step("Given I navigate to the Products page", async () => {
@@ -133,7 +133,7 @@ test.describe("Search Products @regression", () => {
     });
   });
 
-  test(`${TC_SEARCH_SINGLE_CHAR}: Single character search`, async ({
+  test(`${TC_09_5_SEARCH_SINGLE_CHAR}: Single character search`, async ({
     productsPage,
   }) => {
     await test.step("Given I navigate to the Products page", async () => {

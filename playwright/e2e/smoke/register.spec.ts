@@ -1,9 +1,9 @@
 import { test } from "../../fixtures/pages.fixture";
 import { randomUser } from "../../utils/test-data";
-import { TC_REGISTER_VALID } from "../../utils/test-case-ids";
+import { TC_01_REGISTER_VALID } from "../../utils/test-case-ids";
 
 test.describe("Register @smoke", () => {
-  test(`${TC_REGISTER_VALID}: Valid registration creates account`, async ({
+  test(`${TC_01_REGISTER_VALID}: Valid registration creates account`, async ({
     registerPage,
   }) => {
     const user = randomUser();
